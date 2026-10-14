@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NourishLoop — Good Food. Full Circle. | Food Rescue Network</title>
+    <meta name="description" content="NourishLoop connects surplus food from restaurants, hostels, messes, and caterers with local Indian communities, charities, and shelters that need it." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/style.css">
+  </head>
+  <body>
+    <div class="landing-wrapper">
+      <!-- 1. TRANSLUCENT GLASS NAVIGATION -->
+      <header class="editorial-top-nav">
+        <div class="editorial-brand-block">
+          <a href="#hero" class="nourishloop-logo">
+            <!-- Circular food-cycle/leaf SVG icon -->
+            <svg class="logo-icon-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="18" r="16" stroke="rgba(230, 208, 171, 0.25)" stroke-width="1.5"/>
+              <path d="M18 6C11.37 6 6 11.37 6 18C6 21.5 7.5 24.6 9.9 26.8L11.5 24.5C9.7 22.8 8.5 20.5 8.5 18C8.5 12.8 12.8 8.5 18 8.5C21.8 8.5 25.1 10.7 26.6 14L29.2 12.8C27.1 8.7 22.9 6 18 6Z" fill="#B8CBA8"/>
+              <path d="M18 30C24.63 30 30 24.63 30 18C30 14.5 28.5 11.4 26.1 9.2L24.5 11.5C26.3 13.2 27.5 15.5 27.5 18C27.5 23.2 23.2 27.5 18 27.5C14.2 27.5 10.9 25.3 9.4 22L6.8 23.2C8.9 27.3 13.1 30 18 30Z" fill="#F2A23A"/>
+              <circle cx="18" cy="18" r="3.5" fill="#F6F1E8"/>
+            </svg>
+            <div class="brand-text-group">
+              <span class="brand-wordmark">Nourish<span class="brand-accent">Loop</span></span>
+              <span class="brand-descriptor">FOOD RESCUE NETWORK</span>
+            </div>
+          </a>
+        </div>
+        <nav class="editorial-nav-links" aria-label="Main Navigation">
+          <a href="#hero" class="editorial-nav-link">Home</a>
+          <a href="#how-it-works" class="editorial-nav-link">How It Works</a>
+          <a href="#categories" class="editorial-nav-link">Food Categories</a>
+          <a href="#mission" class="editorial-nav-link">About</a>
+          <a href="#auth-section" class="editorial-nav-link">Sign In / Register</a>
+        </nav>
+        <button id="open-landing-feedback" class="feedback-nav-btn">Feedback & Suggestions</button>
+      </header>
+
+      <!-- 2. EDITORIAL HERO SECTION (HEALTHY INDIAN FOOD 50-58% COMPOSITION) -->
+      <section class="hero-editorial-section" id="hero">
+        <div class="hero-copy">
+          <div class="eyebrow-tag">
+            <span class="eyebrow-dot"></span>
+            Good Food. Full Circle.
+          </div>
+          <h2 class="editorial-headline">
+            Good Food Should Never Go to Waste.
+          </h2>
+          <p class="hero-description">
+            Connect surplus food with people who need it. Help restaurants, hostels, caterers, and local communities make every meal count.
+          </p>
+          <div class="hero-supporting-line">
+            <span>🌱</span> Rescue surplus. Share nourishment. Reduce waste.
+          </div>
+          <div class="hero-cta-group">
+            <a href="#auth-section" class="neon-btn tangerine" id="hero-donor-cta">Become a Donor</a>
+            <a href="#auth-section" class="neon-btn lime" id="hero-receiver-cta">Find Food</a>
+          </div>
+        </div>
+
+        <div class="hero-visual-column">
+          <div class="hero-frame-container">
+            <div class="hero-image-wrapper">
+              <img src="./src/assets/indian_thali_hero.jpg" alt="Wholesome Indian thali meal with dal, roti, rice, sabzi and fresh salads" loading="eager" />
+              <div class="hero-image-overlay"></div>
+              <div class="hero-floating-caption">
+                <span class="caption-text">Wholesome Indian Harvest & Thali</span>
+                <span class="caption-sub">Zero Food Left Behind</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. CLEAR DONOR AND RECEIVER ENTRY POINTS (2 BALANCED CARDS) -->
+      <section class="entry-points-section" aria-label="Contribution Entry Points">
+        <div class="entry-cards-grid">
+          <!-- Card A: Become a Donor -->
+          <article class="entry-card donor-card">
+            <div>
+              <div class="entry-card-header">
+                <div class="entry-card-icon">🍲</div>
+                <div>
+                  <span class="eyebrow-tag" style="margin-bottom: 0.2rem; font-size: 0.7rem;">For Food Providers</span>
+                  <h3>Become a Donor</h3>
+                </div>
+              </div>
+              <p>
+                Have extra food from your restaurant, bakery, hostel, mess, or event? List it so people and organizations can request a pickup.
+              </p>
+            </div>
+            <a href="#auth-section" class="neon-btn tangerine full-width" id="entry-donate-btn">
+              Donate Food &rarr;
+            </a>
+          </article>
+
+          <!-- Card B: Find Food -->
+          <article class="entry-card receiver-card">
+            <div>
+              <div class="entry-card-header">
+                <div class="entry-card-icon">🤝</div>
+                <div>
+                  <span class="eyebrow-tag" style="margin-bottom: 0.2rem; font-size: 0.7rem; color: var(--sage); background: var(--sage-subtle); border-color: var(--sage);">For Communities & Charities</span>
+                  <h3>Find Food</h3>
+                </div>
+              </div>
+              <p>
+                Discover available surplus food and request a pickup from nearby donors.
+              </p>
+            </div>
+            <a href="#auth-section" class="neon-btn violet full-width" id="entry-find-btn">
+              Find Available Food &rarr;
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- 4. HOW IT WORKS (3 CLEAR STEPS) -->
+      <section class="editorial-section" id="how-it-works">
+        <div class="section-title-wrap">
+          <div class="eyebrow-tag">Operational Integrity</div>
+          <h2>How NourishLoop Works</h2>
+          <p>Connecting surplus food with communities that need it through a transparent three-step cycle.</p>
+        </div>
+
+        <div class="steps-timeline-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h3>List Surplus Food</h3>
+            <p>Donors provide food details, quantity, pickup schedule, and collection availability.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h3>Connect with Receivers</h3>
+            <p>Receivers discover donations and request them based on geographic proximity and real-time alerts.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h3>Arrange Pickup</h3>
+            <p>Donors and receivers coordinate collection using the existing workflow and verified QR handoffs.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. INDIAN-FRIENDLY FOOD CATEGORIES -->
+      <section class="editorial-section" id="categories">
+        <div class="section-title-wrap">
+          <div class="eyebrow-tag">Surplus Categories</div>
+          <h2>Nourishing Every Plate</h2>
+          <p>Supporting diverse surplus varieties while upholding strict hygiene and fresh collection windows.</p>
+        </div>
+
+        <div class="category-preview-grid">
+          <article class="category-card">
+            <div class="category-card-media">
+              <img src="./src/assets/fresh_produce.jpg" alt="Fresh fruits and vegetables" loading="lazy" />
+              <span class="category-badge">Mandi & Market</span>
+            </div>
+            <div class="category-card-body">
+              <h3>Fresh Fruits & Vegetables</h3>
+              <p>Crisp seasonal produce, leafy greens, and farm-fresh harvests from local wholesale mandis and grocery outlets.</p>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-card-media">
+              <img src="./src/assets/indian_cooked_meals.jpg" alt="Wholesome Indian cooked meals and curries" loading="lazy" />
+              <span class="category-badge">Community Kitchens</span>
+            </div>
+            <div class="category-card-body">
+              <h3>Cooked Meals</h3>
+              <p>Hot, hygienic vegetarian curries, subzis, and banquet portions prepared by caterers, canteens, and messes.</p>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-card-media">
+              <img src="./src/assets/indian_dal_staples.jpg" alt="Indian rice, dal, and staples" loading="lazy" />
+              <span class="category-badge">Essential Nutrition</span>
+            </div>
+            <div class="category-card-body">
+              <h3>Rice, Dal & Staples</h3>
+              <p>Freshly steamed rice, protein-rich lentils, rotis, and grain staples packaged in food-grade containers.</p>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <div class="category-card-media">
+              <img src="./src/assets/bread_bakery.jpg" alt="Bakery items, breads, and buns" loading="lazy" />
+              <span class="category-badge">Daily Bakery</span>
+            </div>
+            <div class="category-card-body">
+              <h3>Bakery Items</h3>
+              <p>Artisanal breads, pav, buns, and fresh tea-time bakery items prepared daily by local bakeries and cafes.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 6. MISSION & IMPACT -->
+      <section class="editorial-section" id="mission">
+        <div class="section-title-wrap">
+          <div class="eyebrow-tag">Our Mission</div>
+          <h2>Building a Circular Food Economy</h2>
+          <p>
+            In every neighborhood, good food goes uneaten while families and shelters struggle with food insecurity. NourishLoop bridges this gap through localized, real-time rescue logistics.
+          </p>
+        </div>
+      </section>
+
+      <!-- 7. PRESERVED AUTHENTICATION HUB -->
+      <section class="auth-editorial-section" id="auth-section">
+        <div class="section-title-wrap">
+          <div class="eyebrow-tag">Access Portal</div>
+          <h2>Join the NourishLoop Network</h2>
+          <p>Select your contribution role to enter your dedicated management portal.</p>
+        </div>
+
+        <main class="auth-wrapper">
+          <!-- Role Selection Segment -->
+          <div class="role-selector-container">
+            <label class="section-label">Select Your Role</label>
+            <div class="role-tabs">
+              <button type="button" class="role-tab active tangerine" id="role-donor-tab" data-role="donor">
+                <span class="role-icon">🍴</span>
+                <div class="role-details">
+                  <strong>Donor</strong>
+                  <small>Restaurants, Hostels, Messes, Caterers</small>
+                </div>
+              </button>
+              <button type="button" class="role-tab violet" id="role-receiver-tab" data-role="receiver">
+                <span class="role-icon">🤝</span>
+                <div class="role-details">
+                  <strong>Receiver</strong>
+                  <small>Food Banks, Charities, Shelters</small>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Auth Card Container -->
+          <div class="auth-card">
+            <!-- Auth Mode Toggle (Sign In vs Register) -->
+            <div class="mode-tabs">
+              <button type="button" class="mode-tab active" id="tab-login">Sign In</button>
+              <button type="button" class="mode-tab" id="tab-register">Register New Account</button>
+            </div>
+
+            <!-- Alert / Status Banner -->
+            <div id="auth-alert" class="auth-alert hidden"></div>
+
+            <!-- 1. SIGN IN FORM -->
+            <form id="login-form" class="auth-form">
+              <div class="input-group">
+                <label for="login-email">Email Address</label>
+                <input type="email" id="login-email" required placeholder="manager@kitchen.com" autocomplete="email" />
+              </div>
+
+              <div class="input-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required placeholder="••••••••" autocomplete="current-password" />
+              </div>
+
+              <button type="submit" id="login-submit-btn" class="neon-btn tangerine full-width">
+                Sign In as <span class="role-text">Donor</span>
+              </button>
+
+              <div class="auth-divider">
+                <span>OR CONTINUE WITH</span>
+              </div>
+
+              <div class="alternative-auth-group">
+                <button type="button" id="google-signin-btn" class="social-auth-btn google-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                  </svg>
+                  Continue with Google
+                </button>
+
+                <button type="button" id="magic-link-btn" class="social-auth-btn email-link-btn">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                  Email Sign-In Link (Passwordless)
+                </button>
+              </div>
+            </form>
+
+            <!-- 2. REGISTER FORM -->
+            <form id="register-form" class="auth-form hidden">
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="reg-name">Representative Name</label>
+                  <input type="text" id="reg-name" required placeholder="Aarav Sharma" autocomplete="name" />
+                </div>
+                <div class="input-group">
+                  <label for="reg-phone">Contact Phone</label>
+                  <input type="tel" id="reg-phone" required placeholder="+91 98765 43210" autocomplete="tel" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="reg-email">Official Email</label>
+                  <input type="email" id="reg-email" required placeholder="contact@charity.org" autocomplete="email" />
+                </div>
+                <div class="input-group">
+                  <label for="reg-password">Password</label>
+                  <input type="password" id="reg-password" required minlength="6" placeholder="Min. 6 characters" autocomplete="new-password" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="reg-org-name">Organisation Name</label>
+                  <input type="text" id="reg-org-name" required placeholder="Annapoorna Kitchen / City Shelter" />
+                </div>
+                <div class="input-group">
+                  <label for="reg-org-type">Organisation Type</label>
+                  <select id="reg-org-type" class="custom-select" required>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="Hotel / Catering">Hotel / Catering</option>
+                    <option value="Mess / Canteen">Mess / Hostel Canteen</option>
+                    <option value="Bakery">Bakery</option>
+                    <option value="Food Bank">Food Bank</option>
+                    <option value="Shelter">Shelter</option>
+                    <option value="Community Kitchen">Community Kitchen</option>
+                    <option value="Charity / NGO">Charity / NGO</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="reg-address">Street Address / Landmark</label>
+                  <input type="text" id="reg-address" placeholder="45 MG Road, Near Metro Station" />
+                </div>
+                <div class="input-group">
+                  <label for="reg-city">City / Region</label>
+                  <input type="text" id="reg-city" placeholder="Bengaluru, Karnataka" />
+                </div>
+              </div>
+
+              <button type="submit" id="register-submit-btn" class="neon-btn tangerine full-width">
+                Create <span class="role-text">Donor</span> Account
+              </button>
+            </form>
+          </div>
+        </main>
+      </section>
+
+      <!-- 8. NOURISHLOOP FOOTER -->
+      <footer class="site-footer">
+        <div class="site-footer-content">
+          <div class="brand-text-group" style="align-items: center;">
+            <span class="brand-wordmark" style="font-size: 1.5rem;">Nourish<span class="brand-accent">Loop</span></span>
+            <span class="brand-descriptor">GOOD FOOD. FULL CIRCLE.</span>
+          </div>
+          <p>&copy; 2026 NourishLoop &bull; Connecting surplus food with communities that need it.</p>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#categories">Food Categories</a></li>
+            <li><a href="#mission">About</a></li>
+            <li><a href="#auth-section">Access Portal</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- FEEDBACK MODAL (Accessible Everywhere) -->
+    <div id="feedback-modal" class="modal hidden">
+      <div class="modal-content feedback-modal-content">
+        <div class="modal-header">
+          <h2>Platform Feedback & Review</h2>
+          <button id="close-feedback-modal" class="modal-close-btn">&times;</button>
+        </div>
+        <p class="modal-subtitle">Share your suggestions. A complete copy of your feedback will be emailed to your inbox for review.</p>
+        
+        <form id="feedback-form" class="feedback-form">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="fb-name">Your Name</label>
+              <input type="text" id="fb-name" required placeholder="Aarav Sharma" />
+            </div>
+            <div class="input-group">
+              <label for="fb-email">Your Email (For Review Receipt)</label>
+              <input type="email" id="fb-email" required placeholder="aarav@example.com" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="fb-phone">Phone (Optional)</label>
+              <input type="tel" id="fb-phone" placeholder="+91 98765 43210" />
+            </div>
+            <div class="input-group">
+              <label for="fb-org">Organisation Name</label>
+              <input type="text" id="fb-org" placeholder="Organisation or Institution" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="fb-category">Feedback Category</label>
+              <select id="fb-category" class="custom-select">
+                <option value="Platform Experience">Platform Experience & Aesthetics</option>
+                <option value="Surplus Handoff">Surplus Handoff & Rescue Logistics</option>
+                <option value="Feature Suggestion">Feature Suggestion & Request</option>
+                <option value="Bug Report">Bug Report / Technical Issue</option>
+                <option value="General">General Feedback</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="fb-rating">Rating (1 to 5 Stars)</label>
+              <select id="fb-rating" class="custom-select">
+                <option value="5">★★★★★ - Excellent (5/5)</option>
+                <option value="4">★★★★☆ - Very Good (4/5)</option>
+                <option value="3">★★★☆☆ - Average (3/5)</option>
+                <option value="2">★★☆☆☆ - Needs Work (2/5)</option>
+                <option value="1">★☆☆☆☆ - Poor (1/5)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="fb-message">Your Comments & Suggestions</label>
+            <textarea id="fb-message" rows="4" required placeholder="Tell us what you liked, what can be improved, or suggestions for the platform..."></textarea>
+          </div>
+
+          <div id="fb-status" class="fb-status hidden"></div>
+
+          <div class="modal-actions">
+            <button type="submit" id="fb-submit-btn" class="neon-btn lime">Submit & Email Me A Copy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="./src/js/auth.js"></script>
+    <script>
+      // Role selection and smooth scroll helpers
+      document.getElementById('hero-donor-cta')?.addEventListener('click', () => {
+        document.getElementById('role-donor-tab')?.click();
+      });
+      document.getElementById('entry-donate-btn')?.addEventListener('click', () => {
+        document.getElementById('role-donor-tab')?.click();
+      });
+      document.getElementById('hero-receiver-cta')?.addEventListener('click', () => {
+        document.getElementById('role-receiver-tab')?.click();
+      });
+      document.getElementById('entry-find-btn')?.addEventListener('click', () => {
+        document.getElementById('role-receiver-tab')?.click();
+      });
+    </script>
+  </body>
+</html>

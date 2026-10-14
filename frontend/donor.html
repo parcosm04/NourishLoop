@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donor Portal | NourishLoop</title>
+    <meta name="description" content="NourishLoop donor portal for listing surplus food, scheduling pickup windows, capturing GPS pickup locations, and approving recipient requests." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/style.css">
+  </head>
+  <body>
+    <!-- TOP NAVIGATION -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <a href="/" class="nourishloop-logo">
+          <svg class="logo-icon-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="16" stroke="rgba(230, 208, 171, 0.25)" stroke-width="1.5"/>
+            <path d="M18 6C11.37 6 6 11.37 6 18C6 21.5 7.5 24.6 9.9 26.8L11.5 24.5C9.7 22.8 8.5 20.5 8.5 18C8.5 12.8 12.8 8.5 18 8.5C21.8 8.5 25.1 10.7 26.6 14L29.2 12.8C27.1 8.7 22.9 6 18 6Z" fill="#B8CBA8"/>
+            <path d="M18 30C24.63 30 30 24.63 30 18C30 14.5 28.5 11.4 26.1 9.2L24.5 11.5C26.3 13.2 27.5 15.5 27.5 18C27.5 23.2 23.2 27.5 18 27.5C14.2 27.5 10.9 25.3 9.4 22L6.8 23.2C8.9 27.3 13.1 30 18 30Z" fill="#F2A23A"/>
+            <circle cx="18" cy="18" r="3.5" fill="#F6F1E8"/>
+          </svg>
+          <div class="brand-text-group">
+            <span class="brand-wordmark">Nourish<span class="brand-accent">Loop</span></span>
+            <span class="brand-descriptor">DONOR OPERATIONS</span>
+          </div>
+        </a>
+      </div>
+      <div class="nav-right">
+        <div id="user-info" class="user-badge"></div>
+        <div class="nav-actions">
+          <button id="open-feedback-btn" class="nav-btn feedback-btn">Feedback</button>
+          <button id="logout-btn" class="nav-btn logout-btn">Logout</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Global Notification Banner for Inbound Claim Requests -->
+    <div id="claim-toast" class="claim-toast hidden">
+      <div class="toast-content">
+        <span class="toast-icon">⚡</span>
+        <div class="toast-text">
+          <strong id="toast-title">New Claim Request!</strong>
+          <p id="toast-msg">A receiver is requesting to claim your surplus.</p>
+        </div>
+      </div>
+      <a href="#live-monitor-section" class="toast-action-btn">View Request &rarr;</a>
+    </div>
+
+    <main class="dashboard">
+      <!-- 1. EDITORIAL WELCOME & KPI OVERVIEW -->
+      <header class="dashboard-header-block">
+        <div>
+          <h2>Surplus Operations & Food Rescue Hub</h2>
+          <p>List fresh surplus, schedule pickup slots, capture GPS collection coordinates, and verify handoffs.</p>
+        </div>
+        <div class="live-pill">
+          <span class="status-indicator"></span>
+          NETWORK LIVE
+        </div>
+      </header>
+
+      <!-- 4 Compact Metric Cards (Block A — Overview) -->
+      <section class="history-metrics-grid" aria-label="Key Performance Indicators">
+        <div class="metric-card">
+          <span class="metric-num" id="metric-total-items">0</span>
+          <span class="metric-label">Items Listed</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-num" id="metric-total-kg">0 kg</span>
+          <span class="metric-label">Food Rescued</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-num" id="metric-pending-claims">0</span>
+          <span class="metric-label">Pending Approval</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-num" id="metric-completed-claims">0</span>
+          <span class="metric-label">Completed Handoffs</span>
+        </div>
+      </section>
+
+      <!-- 2. CREATE A DONATION (WITH PICKUP SCHEDULE & GPS LOCATION) & ESG IMPACT -->
+      <section class="donor-dashboard">
+        <!-- Block B: Create a Donation Form -->
+        <div class="post-section">
+          <h2>
+            <span class="panel-icon-badge">🍲</span>
+            Exhibit Surplus Food
+          </h2>
+          <p class="panel-helper-text">Provide donation details, set a collection window, and add your pickup location.</p>
+          
+          <form id="donation-form" class="gallery-form">
+            <!-- Basic Donation Details -->
+            <div class="form-row">
+              <div class="input-group">
+                <label for="foodItem">Food Description</label>
+                <input type="text" id="foodItem" required placeholder="e.g. 40 Portions of Dal Makhani & Jeera Rice" />
+              </div>
+              <div class="input-group">
+                <label for="quantityKg">Estimated Weight (kg)</label>
+                <input type="number" id="quantityKg" required min="0.1" step="0.1" placeholder="e.g. 15" />
+              </div>
+            </div>
+
+            <!-- Block C: Dedicated Pickup Schedule Panel -->
+            <div class="pickup-schedule-panel">
+              <div class="subpanel-header">
+                <span style="font-size: 1.1rem;">🗓️</span>
+                <strong>Pickup Schedule</strong>
+              </div>
+              <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.85rem;">
+                Choose a convenient collection window for receivers.
+              </p>
+
+              <!-- Row 1: Pickup Date & Available From -->
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="pickupDate">Pickup Date</label>
+                  <input type="date" id="pickupDate" required />
+                </div>
+                <div class="input-group">
+                  <label for="pickupFromTime">Available From</label>
+                  <input type="time" id="pickupFromTime" required />
+                </div>
+              </div>
+
+              <!-- Row 2: Deadline Date & Available Until (Deadline) -->
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="pickupDeadlineDate">Deadline Date</label>
+                  <input type="date" id="pickupDeadlineDate" required />
+                </div>
+                <div class="input-group">
+                  <label for="pickupUntilTime">Available Until (Deadline)</label>
+                  <input type="time" id="pickupUntilTime" required />
+                </div>
+              </div>
+
+              <!-- Row 3: Pickup Instructions (Optional) -->
+              <div class="input-group" style="margin-bottom: 0;">
+                <label for="pickupInstructions">Pickup Instructions (Optional)</label>
+                <input type="text" id="pickupInstructions" placeholder="e.g. Kitchen back entrance, Ring bell at Gate 2" />
+              </div>
+
+              <!-- Preserved Hidden input for backend contract compatibility -->
+              <input type="datetime-local" id="expiryTime" style="display: none;" />
+            </div>
+
+            <!-- Block D: Dedicated GPS Location Panel -->
+            <div class="gps-location-panel">
+              <div class="subpanel-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 0.45rem;">
+                  <span style="font-size: 1.1rem;">📍</span>
+                  <strong style="color: var(--accent);">Pickup Location</strong>
+                </div>
+                <span id="gps-status" class="gps-status-badge not-added">⚪ Location Not Added</span>
+              </div>
+              <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0.35rem 0 0.75rem;">
+                Add the location where receivers can collect this donation.
+              </p>
+
+              <div class="gps-action-bar">
+                <button type="button" id="btn-get-gps" class="neon-btn lime btn-sm">
+                  📍 Use My Current Location
+                </button>
+                <button type="button" id="btn-retry-gps" class="neon-btn btn-sm hidden">
+                  🔄 Retry Location
+                </button>
+              </div>
+
+              <!-- Coordinate Display Card -->
+              <div id="gps-coords-display" class="gps-coordinates-display hidden">
+                <div>
+                  <span>Lat: <strong id="disp-lat">0.0000</strong>, Lng: <strong id="disp-lng">0.0000</strong></span>
+                  <span id="disp-accuracy" style="font-size: 0.75rem; color: var(--sage); margin-left: 0.5rem;">(±15m)</span>
+                </div>
+                <span style="color: var(--success); font-size: 0.8rem; font-weight: 600;">✓ Ready</span>
+              </div>
+
+              <!-- Address / Landmark fallback field -->
+              <div class="input-group" style="margin-top: 0.85rem; margin-bottom: 0;">
+                <label for="pickupAddress">Pickup Address / Landmark (Fallback)</label>
+                <input type="text" id="pickupAddress" placeholder="e.g. 14 Indira Nagar, Behind Community Center" />
+              </div>
+
+              <p class="gps-privacy-note">
+                🔒 <strong>Privacy:</strong> Location is requested only upon your click and used solely to direct verified receivers for collection.
+              </p>
+            </div>
+
+            <button type="submit" id="submit-donation-btn" class="neon-btn tangerine full-width" style="margin-top: 0.75rem;">
+              Exhibit Surplus Item &rarr;
+            </button>
+          </form>
+        </div>
+        
+        <!-- Impact & Analytics Section -->
+        <div class="impact-section">
+          <h2>
+            <span class="panel-icon-badge">🌱</span>
+            ESG Sustainability Impact
+          </h2>
+          <p class="panel-helper-text">Real-time calculation of food waste diverted and greenhouse gas emissions prevented.</p>
+          <div class="chart-container" style="flex: 1; min-height: 320px;">
+            <canvas id="impactChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. LIVE REAL-TIME SURPLUS TRACKING MONITOR -->
+      <section class="monitor-section" id="live-monitor-section">
+        <div class="section-header">
+          <div>
+            <h2>Live Surplus Monitor</h2>
+            <p class="section-desc">Active listings tracked in real time. Incoming claims will appear here for your explicit approval.</p>
+          </div>
+          <div class="live-pill">
+            <span class="status-indicator"></span>
+            LIVE TRACKER
+          </div>
+        </div>
+
+        <div id="live-surplus-grid" class="donor-listings-grid">
+          <p class="loading-text" style="color: var(--text-secondary);">Loading your active listings...</p>
+        </div>
+      </section>
+
+      <!-- 4. QR SCAN HANDOFF VERIFICATION -->
+      <section class="qr-scan-section">
+        <div class="section-header">
+          <div>
+            <h2>Complete Handoff (Verify Recipient)</h2>
+            <p class="section-desc">Verify recipient pickup by confirming the Claim ID displayed on the receiver's digital badge or QR code.</p>
+          </div>
+        </div>
+        <div class="scan-controls">
+          <input type="text" id="qr-data" placeholder="Enter or paste Claim ID from Receiver QR badge..." />
+          <button id="scan-btn" class="neon-btn lime">Confirm Handoff</button>
+        </div>
+      </section>
+
+      <!-- 5. CHRONOLOGICAL EXHIBITION HISTORY ARCHIVE -->
+      <section class="history-section">
+        <div class="section-header">
+          <div>
+            <h2>Exhibition Archive & Audit Log</h2>
+            <p class="section-desc">Complete chronological record of all surplus items listed by your organisation to date.</p>
+          </div>
+        </div>
+
+        <div class="history-table-wrapper">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Food Item</th>
+                <th>Weight</th>
+                <th>Listed Time</th>
+                <th>Recipient / Charity</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="history-table-body">
+              <tr>
+                <td colspan="6" class="empty-state">No listings recorded yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- FEEDBACK MODAL -->
+    <div id="feedback-modal" class="modal hidden">
+      <div class="modal-content feedback-modal-content">
+        <div class="modal-header">
+          <h2>Platform Feedback & Review</h2>
+          <button id="close-feedback-modal" class="modal-close-btn">&times;</button>
+        </div>
+        <p class="modal-subtitle">Share your suggestions. A complete copy of your feedback will be emailed to your inbox for review.</p>
+        
+        <form id="feedback-form" class="feedback-form">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="fb-name">Your Name</label>
+              <input type="text" id="fb-name" required placeholder="Jane Doe" />
+            </div>
+            <div class="input-group">
+              <label for="fb-email">Your Email (For Review Receipt)</label>
+              <input type="email" id="fb-email" required placeholder="jane@example.com" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="fb-phone">Phone (Optional)</label>
+              <input type="tel" id="fb-phone" placeholder="+91 98765 43210" />
+            </div>
+            <div class="input-group">
+              <label for="fb-org">Organisation Name</label>
+              <input type="text" id="fb-org" placeholder="Organisation or Institution" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="fb-category">Feedback Category</label>
+              <select id="fb-category" class="custom-select">
+                <option value="Platform Experience">Platform Experience & Aesthetics</option>
+                <option value="Surplus Handoff">Surplus Handoff & Rescue Logistics</option>
+                <option value="Feature Suggestion">Feature Suggestion & Request</option>
+                <option value="Bug Report">Bug Report / Technical Issue</option>
+                <option value="General">General Feedback</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="fb-rating">Rating (1 to 5 Stars)</label>
+              <select id="fb-rating" class="custom-select">
+                <option value="5">★★★★★ - Excellent (5/5)</option>
+                <option value="4">★★★★☆ - Very Good (4/5)</option>
+                <option value="3">★★★☆☆ - Average (3/5)</option>
+                <option value="2">★★☆☆☆ - Needs Work (2/5)</option>
+                <option value="1">★☆☆☆☆ - Poor (1/5)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="fb-message">Your Comments & Suggestions</label>
+            <textarea id="fb-message" rows="4" required placeholder="Tell us what you liked, what can be improved, or suggestions for the platform..."></textarea>
+          </div>
+
+          <div id="fb-status" class="fb-status hidden"></div>
+
+          <div class="modal-actions">
+            <button type="submit" id="fb-submit-btn" class="neon-btn lime">Submit & Email Me A Copy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="./src/js/donor.js"></script>
+  </body>
+</html>
